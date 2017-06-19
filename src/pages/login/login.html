@@ -18,7 +18,7 @@
 
         <ion-item>
             <ion-label floating>Usuário</ion-label>
-            <ion-input type="text" [value]="username" (input)="username = $event.target.value"></ion-input>
+            <ion-input [value]="username" (input)="username = $event.target.value" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -30,5 +30,6 @@
 
      <button ion-button (click)="getAuthTokenSimple()" color="success">Entrar</button>
 
-   
+   <br/>
+   <a href="/pages/home/home.html"><p>Esqueceu sua senha?</p></a>
 </ion-content>

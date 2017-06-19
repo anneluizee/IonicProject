@@ -68,7 +68,7 @@ public getAuthTokenSimple() {
     );
    }
 
-   AlertaConseguiu(){
+ public  AlertaConseguiu(){
      let alert = this.alertCtrl.create();
     alert.setTitle('Escolha a categoria');
 
@@ -90,7 +90,7 @@ public getAuthTokenSimple() {
     alert.present();
    }
 
-   AlertaNaoConseguiu(){
+  public AlertaNaoConseguiu(){
       let alert = this.alertCtrl.create({
       title: 'Login Failed',
       message: 'Você não conseguiu fazer login. Tente novamente!',
