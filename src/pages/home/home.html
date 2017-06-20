@@ -1,20 +1,21 @@
-
-  <ion-navbar *navbar>
-    <ion-title>
-     Home
-    </ion-title>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
   </ion-navbar>
+</ion-header>
 
-
-<ion-menu [content]="mycontent">
-<ion-content class="page2">
+<ion-content padding>
     <ion-list>
        <h1>Bem vindo ao Buscapé</h1>
     </ion-list>
   </ion-content>
-</ion-menu>
 
-<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+<!--<ion-nav #mycontent [root]="rootPage"></ion-nav>-->
+
 
 
 

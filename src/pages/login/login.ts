@@ -7,13 +7,7 @@ import { AlertController } from 'ionic-angular';
 import { HomePage } from "../home/home";
 import { EsqueceuSenhaPage} from "../esqueceu-senha/esqueceu-senha";
 import { CadastrarPage } from "../cadastrar/cadastrar";
-
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { MainPage } from '../main/main';
 
 @Component({
   templateUrl: 'login.html',
@@ -80,30 +74,11 @@ public getAuthTokenSimple() {
    }
 
  public  AlertaConseguiu(){
-    /* let alert = this.alertCtrl.create();
-    alert.setTitle('Escolha a categoria');
-
-    alert.addInput({
-      type: 'radio',
-      label: 'Blue',
-      value: 'blue',
-      checked: true
-    });
-
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'OK',
-      handler: data => {
-        this.testRadioOpen = false;
-        this.testRadioResult = data;
-      }
-    });
-    alert.present();*/
-
-   this.navCtrl.push(HomePage, {
-      firstPassed: "value 1",
-      secondPassed: "value 2"
-    })
+   this.navCtrl.setRoot(HomePage); 
+   //{
+   //   firstPassed: "value 1",
+   //   secondPassed: "value 2"
+   // })
     
    }
 
