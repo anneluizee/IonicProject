@@ -34,7 +34,7 @@ pages: Array<{title: string, component: any}>
     
      this.pages = [
       { title: 'Home', component: HomePage },
-       { title: 'Lista', component: ListarProdutosPage }     
+      { title: 'Lista de Produtos', component: ListarProdutosPage }
     ];
    
   }
