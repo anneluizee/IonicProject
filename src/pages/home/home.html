@@ -6,9 +6,15 @@
   </ion-navbar>
 
 
+<ion-menu [content]="mycontent">
 <ion-content class="page2">
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+    <ion-list>
+       <h1>Bem vindo ao Buscapé</h1>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+
+

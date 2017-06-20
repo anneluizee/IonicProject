@@ -10,6 +10,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { EsqueceuSenhaPage} from "../pages/esqueceu-senha/esqueceu-senha";
+import { CadastrarPage } from "../pages/cadastrar/cadastrar"; //para cadastrar usuario
+import { CadastrarProdutoPage } from "../pages/cadastrar-produto/cadastrar-produto";
+import { ListarProdutosPage } from "../pages/listar-produtos/listar-produtos";
 
 import { BackandService } from '@backand/angular2-sdk';
 
@@ -19,7 +23,11 @@ import { BackandService } from '@backand/angular2-sdk';
     MyApp,
     HomePage,
     LoginPage,
-    TabsPage
+    TabsPage,
+    EsqueceuSenhaPage,
+    CadastrarPage,
+    ListarProdutosPage,
+    CadastrarProdutoPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,11 @@ import { BackandService } from '@backand/angular2-sdk';
     MyApp,
     HomePage,
     LoginPage,
-    TabsPage
+    TabsPage,
+    CadastrarPage,
+    EsqueceuSenhaPage,
+    ListarProdutosPage,
+    CadastrarProdutoPage
   ],
   providers: [
     StatusBar,

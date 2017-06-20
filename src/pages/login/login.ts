@@ -4,7 +4,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/Rx'
 import { BackandService } from '@backand/angular2-sdk'
 import { AlertController } from 'ionic-angular';
-
+import { HomePage } from "../home/home";
+import { EsqueceuSenhaPage} from "../esqueceu-senha/esqueceu-senha";
+import { CadastrarPage } from "../cadastrar/cadastrar";
 
 /**
  * Generated class for the LoginPage page.
@@ -16,8 +18,14 @@ import { AlertController } from 'ionic-angular';
 @Component({
   templateUrl: 'login.html',
   selector: 'page-login', 
+  
 })
 export class LoginPage {
+
+  homePage = HomePage;
+  esqueceuSenhaPage = EsqueceuSenhaPage;
+  cadastrarPage = CadastrarPage;
+
   username:string = null;
   password:string = null;
   auth_type:string = "N/A";
@@ -27,8 +35,11 @@ export class LoginPage {
    testRadioOpen: boolean;
   testRadioResult;
   AlertaString:string=null;
+params: Object;
+pushPage: any;
 
-  constructor(private backand:BackandService,public alertCtrl: AlertController) {
+  constructor(private backand:BackandService,public alertCtrl: AlertController,public navCtrl: NavController) {
+
  this.backand.user.getUserDetails().then(
       (res: any) => {
         if(res.data) {
@@ -69,7 +80,7 @@ public getAuthTokenSimple() {
    }
 
  public  AlertaConseguiu(){
-     let alert = this.alertCtrl.create();
+    /* let alert = this.alertCtrl.create();
     alert.setTitle('Escolha a categoria');
 
     alert.addInput({
@@ -87,7 +98,13 @@ public getAuthTokenSimple() {
         this.testRadioResult = data;
       }
     });
-    alert.present();
+    alert.present();*/
+
+   this.navCtrl.push(HomePage, {
+      firstPassed: "value 1",
+      secondPassed: "value 2"
+    })
+    
    }
 
   public AlertaNaoConseguiu(){

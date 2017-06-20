@@ -15,7 +15,6 @@
     <h2>Login</h2>
 
     <ion-list>
-
         <ion-item>
             <ion-label floating>Usuário</ion-label>
             <ion-input [value]="username" (input)="username = $event.target.value" type="text"></ion-input>
@@ -31,5 +30,8 @@
      <button ion-button (click)="getAuthTokenSimple()" color="success">Entrar</button>
 
    <br/>
-   <a href="/pages/home/home.html"><p>Esqueceu sua senha?</p></a>
+   <a [navPush]="esqueceuSenhaPage"><p>Esqueceu sua senha?</p></a>
+
+   <br/>
+   <button ion-button [navPush]="cadastrarPage">Cadastrar</button>
 </ion-content>
