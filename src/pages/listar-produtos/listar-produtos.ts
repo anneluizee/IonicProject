@@ -41,4 +41,48 @@ listar() {
     }).catch((err) => {
     });
   }
+
+editar(p) {
+    this.navCtrl.push(CadastrarProdutoPage, { id: p.id });
+  }
+
+  cadastrar(){
+    this.navCtrl.push(CadastrarProdutoPage);
+  }
+
+  excluir(p) {
+    let confirm = this.alertCtrl.create({
+      title: 'Excluir produto',
+      message: 'Deseja realmente excluir este registro?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            let loading = this.loadingCtrl.create({
+              content: 'Excluindo...'
+            });
+            loading.present();
+            this.backand.object.remove("produto", p.id).then((resp) => {
+              let toast = this.toast.create({
+                message: 'Produto excuído com sucesso!',
+                duration: 2000
+              });
+              toast.present();
+              loading.dismiss();
+               this.listar();
+            }).catch((err) => {
+
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -11,19 +11,25 @@ import { ListarProdutosPage } from '../pages/listar-produtos/listar-produtos';
 
 
 @Component({
-  templateUrl: 'app.html'
-  //template: `<ion-nav [root]="rootPage"></ion-nav>` 
+  templateUrl: 'app.html',
 })
 
 export class MyApp {
-  @ViewChild(NavController) nav: NavController
-  rootPage : any =LoginPage; 
+  @ViewChild(Nav) nav: Nav;
 
-pages: Array<{title: string, component: any}>
+  rootPage : any = LoginPage; 
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public backand:BackandService) {
+  pages: Array<{title: string, component: any}>;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  public backand:BackandService) {
+
     this.initializeApp();
-   
+     this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'Lista de Produtos', component: ListarProdutosPage }
+    ];
+
         backand.init({
         appName: 'buscape',
         signUpToken: '9943944c-3896-45ef-872e-3477476f1401',
@@ -32,10 +38,7 @@ pages: Array<{title: string, component: any}>
         mobilePlatform: 'ionic'
       });
     
-     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Lista de Produtos', component: ListarProdutosPage }
-    ];
+   
    
   }
 
@@ -49,4 +52,10 @@ pages: Array<{title: string, component: any}>
    });
 }
 
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
+  
 }
