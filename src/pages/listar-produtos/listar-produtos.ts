@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController,ToastController} from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk';
 import { CadastrarProdutoPage } from '../cadastrar-produto/cadastrar-produto';
-import { LoadingController,ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -53,7 +52,7 @@ editar(p) {
   excluir(p) {
     let confirm = this.alertCtrl.create({
       title: 'Excluir produto',
-      message: 'Deseja realmente excluir este registro?',
+      message: 'Deseja realmente excluir o produto?',
       buttons: [
         {
           text: 'Não',

@@ -1,25 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Listar Produtos</ion-title>
-  </ion-navbar>
+    <ion-title>Listar Estabelecimento</ion-title>
+   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 <ion-list>
-  <ion-item-sliding *ngFor="let p of produtos; let i=index">
+  <ion-item-sliding *ngFor="let e of estabelecimentos; let i=index">
     <ion-item>
-      <h2>{{p.nome}}</h2>
-      <h3>{{p.descricao}}</h3>
+      <h2>{{e.nome}}</h2>
+      <h3>{{e.site}}</h3>
     </ion-item>
     <ion-item-options side="right">
-      <button ion-button color="primary" (click)="editar(p)">
+      <button ion-button color="primary" (click)="editar(e)">
         <ion-icon name="open"></ion-icon>
         Editar
       </button>
-       <button ion-button color="secondary" (click)="excluir(p)">
+       <button ion-button color="secondary" (click)="excluir(e)">
         <ion-icon name="trash"></ion-icon>
         Excluir
       </button>

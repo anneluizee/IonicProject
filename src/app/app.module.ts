@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import io from 'socket.io-client';
@@ -13,6 +13,8 @@ import { EsqueceuSenhaPage} from "../pages/esqueceu-senha/esqueceu-senha";
 import { CadastrarPage } from "../pages/cadastrar/cadastrar"; //para cadastrar usuario
 import { CadastrarProdutoPage } from "../pages/cadastrar-produto/cadastrar-produto";
 import { ListarProdutosPage } from "../pages/listar-produtos/listar-produtos";
+import { ListarEstabelecimentoPage } from '../pages/listar-estabelecimento/listar-estabelecimento';
+import { CadastrarEstabelecimentoPage } from '../pages/cadastrar-estabelecimento/cadastrar-estabelecimento';
 
 import { BackandService } from '@backand/angular2-sdk';
 
@@ -25,7 +27,9 @@ import { BackandService } from '@backand/angular2-sdk';
     EsqueceuSenhaPage,
     CadastrarPage,
     ListarProdutosPage,
-    CadastrarProdutoPage
+    CadastrarProdutoPage,
+    CadastrarEstabelecimentoPage,
+    ListarEstabelecimentoPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { BackandService } from '@backand/angular2-sdk';
     CadastrarPage,
     EsqueceuSenhaPage,
     ListarProdutosPage,
-    CadastrarProdutoPage
+    CadastrarProdutoPage,
+    ListarEstabelecimentoPage,
+    CadastrarEstabelecimentoPage
   ],
   providers: [
     StatusBar,

@@ -1,25 +1,24 @@
 <ion-header>
   <ion-navbar>
-      <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Cadastrar  Produto</ion-title>
+     <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+    <ion-title>CadastrarEstabelecimento</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
 <ion-list>
   <ion-item>
     <ion-label floating>Nome</ion-label>
-    <ion-input [(ngModel)]="produto.nome" type="text"></ion-input>
+    <ion-input [(ngModel)]="estabelecimento.nome" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Descrição</ion-label>
-    <ion-input [(ngModel)]="produto.descricao" type="text"></ion-input>
+    <ion-input [(ngModel)]="estabelecimento.site" type="text"></ion-input>
   </ion-item>
-  
+
   <div style="height:30px"></div>
   <button ion-button block (click)="cadastrar()">Cadastrar</button>
 </ion-list>
