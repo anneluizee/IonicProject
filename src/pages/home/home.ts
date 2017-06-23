@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 
 import 'rxjs/Rx'
 import { BackandService } from '@backand/angular2-sdk'
@@ -10,8 +10,8 @@ import { BackandService } from '@backand/angular2-sdk'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController,public menu: MenuController) {
+ this.menu.enable(true,'menu');
   }
 
 }

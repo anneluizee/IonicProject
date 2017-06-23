@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { Platform, Nav, AlertController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -22,7 +22,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
-  public backand:BackandService) {
+  public backand:BackandService, public alertCtrl: AlertController, public menu: MenuController ) {
 
     this.initializeApp();
      this.pages = [
@@ -54,4 +54,34 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  Sair(){
+   let alert = this.alertCtrl.create({
+    title: 'Confirm Log Out',
+    message: 'Are you sure you want to log out?',
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Log Out',
+        handler: () => {
+          this.backand.signout();
+          this.nav.setRoot(LoginPage);
+          this.menu.enable(false,'menu');
+          console.log('Logged out');
+        }
+      }
+    ]
+  });
+  alert.present();
+  
+}
+
+
+
 }

@@ -48,6 +48,7 @@ pushPage: any;
 }
 
 public getAuthTokenSimple() {
+  
     this.auth_type = 'Token';
     this.backand.signin(this.username, this.password)
       .then((res: any) => {
