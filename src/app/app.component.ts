@@ -57,18 +57,18 @@ export class MyApp {
 
   Sair(){
    let alert = this.alertCtrl.create({
-    title: 'Confirm Log Out',
-    message: 'Are you sure you want to log out?',
+    title: 'Confirmar',
+    message: 'Você tem certeza que deseja sair?',
     buttons: [
       {
-        text: 'Cancel',
-        role: 'cancel',
+        text: 'Cancelar',
+        role: 'cancelar',
         handler: () => {
           console.log('Cancel clicked');
         }
       },
       {
-        text: 'Log Out',
+        text: 'L',
         handler: () => {
           this.backand.signout();
           this.nav.setRoot(LoginPage);
