@@ -68,7 +68,7 @@ export class MyApp {
         }
       },
       {
-        text: 'L',
+        text: 'Sair',
         handler: () => {
           this.backand.signout();
           this.nav.setRoot(LoginPage);

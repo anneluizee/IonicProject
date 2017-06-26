@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+     <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+    <ion-title>Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+     <ion-label stacked>Nome</ion-label>
+    <ion-label> {{produto.nome}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+     <ion-label stacked>Descrição</ion-label>
+    <ion-label> {{produto.descricao}}</ion-label>
+  </ion-item>
+
+  <!--Criar um campo para escrever comentário -->
+ <button ion-button (click)="openModal(produto.id)">O que você acha desse produto?</button>
+</ion-content>

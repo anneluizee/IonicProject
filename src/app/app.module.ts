@@ -15,9 +15,9 @@ import { CadastrarProdutoPage } from "../pages/cadastrar-produto/cadastrar-produ
 import { ListarProdutosPage } from "../pages/listar-produtos/listar-produtos";
 import { ListarEstabelecimentoPage } from '../pages/listar-estabelecimento/listar-estabelecimento';
 import { CadastrarEstabelecimentoPage } from '../pages/cadastrar-estabelecimento/cadastrar-estabelecimento';
-
+import { ProdutoZoomPage } from "../pages/produto-zoom/produto-zoom";
 import { BackandService } from '@backand/angular2-sdk';
-
+import { ComentarioModalPage } from "../pages/comentario-modal/comentario-modal"; 
 
 @NgModule({
   declarations: [
@@ -29,7 +29,9 @@ import { BackandService } from '@backand/angular2-sdk';
     ListarProdutosPage,
     CadastrarProdutoPage,
     CadastrarEstabelecimentoPage,
-    ListarEstabelecimentoPage
+    ListarEstabelecimentoPage,
+    ProdutoZoomPage,
+    ComentarioModalPage
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,10 @@ import { BackandService } from '@backand/angular2-sdk';
     ListarProdutosPage,
     CadastrarProdutoPage,
     ListarEstabelecimentoPage,
-    CadastrarEstabelecimentoPage
-  ],
+    CadastrarEstabelecimentoPage,
+    ProdutoZoomPage,
+    ComentarioModalPage
+    ],
   providers: [
     StatusBar,
     SplashScreen,

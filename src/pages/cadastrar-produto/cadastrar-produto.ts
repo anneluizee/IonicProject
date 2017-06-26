@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk';
 import { ListarProdutosPage } from '../listar-produtos/listar-produtos';
 
@@ -11,8 +11,9 @@ import { ListarProdutosPage } from '../listar-produtos/listar-produtos';
 export class CadastrarProdutoPage {
 //objeto que ira receber os dados do formulario
 produto: any;
-//no construtor inserimos os recursos que ser"ao utilizados na aplicação
-  constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService, public loadingCtrl: LoadingController) {
+//no construtor inserimos os recursos que serão utilizados na aplicação
+  constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService, 
+  public loadingCtrl: LoadingController) {
  //inicializa o objeto produto - obrigatorio
     this.produto = {};
      // na edicao pega o ID passado como parametro
@@ -36,7 +37,6 @@ produto: any;
  }
 
 cadastrar() {
-
     let loading = this.loadingCtrl.create({
       content: 'Salvando...'
     });

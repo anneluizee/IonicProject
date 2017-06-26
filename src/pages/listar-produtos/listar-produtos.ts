@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController,ToastController} from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk';
 import { CadastrarProdutoPage } from '../cadastrar-produto/cadastrar-produto';
+import { ProdutoZoomPage } from '../produto-zoom/produto-zoom';
 
 @IonicPage()
 @Component({
@@ -82,6 +83,11 @@ editar(p) {
       ]
     });
     confirm.present();
+  }
+
+  produtoClick(p){
+    console.log('rotear para zoomProduto');
+    this.navCtrl.push(ProdutoZoomPage, { id: p.id}); //tem que passar os parametros do produto
   }
 
 }

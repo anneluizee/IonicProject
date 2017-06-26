@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { NavController,AlertController } from 'ionic-angular';
 
 import 'rxjs/Rx'
 import { BackandService } from '@backand/angular2-sdk'
 import { HomePage } from "../home/home";
 import { EsqueceuSenhaPage} from "../esqueceu-senha/esqueceu-senha";
-
+import { CadastrarPage } from "../cadastrar/cadastrar";
 
 @Component({
   templateUrl: 'login.html',
@@ -16,9 +16,10 @@ export class LoginPage {
 
   homePage = HomePage;
   esqueceuSenhaPage = EsqueceuSenhaPage;
+  cadastrarPage = CadastrarPage;
 
-  username:string = null;
-  password:string = null;
+  username:string = 'anne@gmail.com';
+  password:string = 'anne1612';
   auth_type:string = "N/A";
   is_auth_error:boolean = false;
   auth_status:string = null;
