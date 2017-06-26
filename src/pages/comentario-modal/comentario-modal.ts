@@ -10,8 +10,8 @@ export class ComentarioModalPage {
   produto: any;
 
 
-  obj:any = this.params.get('obj');
-   
+  obj:any = this.params.get('id');
+
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -19,15 +19,14 @@ export class ComentarioModalPage {
     public backand: BackandService,
     public loadingCtrl: LoadingController) {
    
-    let id = this.params.get("obj");
-    console.log("oi: " + this.obj);
-    if (id != undefined) {
+ 
+    if (this.obj != undefined) {
       let loading = this.loadingCtrl.create({
         content: 'Recuperando informações...'
       });
       loading.present();
 
-      this.backand.object.getOne("produto", id).then((resp) => {
+      this.backand.object.getOne("produto", this.obj).then((resp) => {
         this.produto = resp.data;
         loading.dismiss();
       }).catch((errp) => {
