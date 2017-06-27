@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController, Platform, NavController, NavParams, ViewController } from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk';
-import { ProdutoZoomPage } from '../produto-zoom/produto-zoom';
+import { ListarProdutosPage } from '../listar-produtos/listar-produtos';
 
 @Component({
   selector: 'page-comentario-modal',
@@ -10,6 +10,9 @@ import { ProdutoZoomPage } from '../produto-zoom/produto-zoom';
 export class ComentarioModalPage {
   produto: any;
   comentario: any;
+  comentarios: any;
+  myProduto: any;
+  descricao: any;
 
   //peguei o id do produto
   obj: any = this.params.get('id');
@@ -23,6 +26,8 @@ export class ComentarioModalPage {
     public navCtrl: NavController) {
 
     this.produto = {};
+    this.comentarios = [];
+    this.myProduto = {};
 
     if (this.obj != undefined) {
       let loading = this.loadingCtrl.create({
@@ -62,12 +67,18 @@ export class ComentarioModalPage {
   }
 
   criar(loading){
-  this.backand.object.create("comentario", this.comentario.id).then((resp) => {
+  
+  this.backand.object.create("comentario", {
+    descricao: this.produto.comentarios,
+    myProduto: this.produto.id
+    //user: res.data.userId
+  }).then((resp) => {
     loading.dismiss();
-    this.navCtrl.setRoot(ProdutoZoomPage);
+    this.navCtrl.setRoot(ListarProdutosPage);
   }).catch((err) => {
     console.log("erroCadastrarComentario: "+err);
   });
+
 }
 
 }

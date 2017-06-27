@@ -10,6 +10,7 @@ import { ComentarioModalPage } from "../comentario-modal/comentario-modal";
 export class ProdutoZoomPage {
   produto: any;
   identificador: any;
+  comentarios: any;
 
   constructor(
     public navCtrl: NavController,
@@ -32,7 +33,14 @@ export class ProdutoZoomPage {
         this.produto = resp.data;
         loading.dismiss();
       }).catch((errp) => {
-      })  ;
+      });
+
+      this.backand.object.getList("comentario",{myProduto:[id]}).then((resp) => {
+        this.comentarios = resp.data;
+        loading.dismiss();
+      }).catch((errp) => {
+      });
+
     }
 
     //identificou o id do produto, então carrega os comentários do produto

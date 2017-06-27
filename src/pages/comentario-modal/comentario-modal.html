@@ -24,9 +24,10 @@
     <ion-input [(ngModel)]="produto.descricao" type="text" readonly="true"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label floating> Comentário</ion-label>
-    <ion-input [(ngModel)]="produto.comentario" type="text"></ion-input>
+   <ion-item>
+    <ion-label floating> Escreva seu comentário</ion-label>
+   <ion-input [(ngModel)]="produto.comentarios" type="text"> </ion-input>
+   <!--<ion-input *ngIf="produto.comentarios">{{produto.comentarios}} </ion-input>-->
   </ion-item>
 
   <div style="height:30px"></div>
