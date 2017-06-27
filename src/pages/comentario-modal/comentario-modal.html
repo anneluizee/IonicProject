@@ -3,7 +3,7 @@
     <ion-title>
       Comentário
     </ion-title>
-     <ion-buttons start>
+    <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
@@ -13,11 +13,23 @@
 </ion-header>
 
 <ion-content>
- 
-   <ion-item>
-     <ion-label>Nome</ion-label>
-    <ion-label> {{obj.nome}} </ion-label>
-    <p> teste</p>
+
+  <ion-item>
+    <ion-label floating>Nome</ion-label>
+    <ion-input [(ngModel)]="produto.nome" type="text" readonly="true"></ion-input>
   </ion-item>
-  
+
+  <ion-item>
+    <ion-label floating>Descrição</ion-label>
+    <ion-input [(ngModel)]="produto.descricao" type="text" readonly="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating> Comentário</ion-label>
+    <ion-input [(ngModel)]="produto.comentario" type="text"></ion-input>
+  </ion-item>
+
+  <div style="height:30px"></div>
+  <button ion-button block (click)="cadastrar()">Cadastrar</button>
+ 
 </ion-content>

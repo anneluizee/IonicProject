@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController, Platform, NavController, NavParams, ViewController } from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk';
+import { ProdutoZoomPage } from '../produto-zoom/produto-zoom';
 
 @Component({
   selector: 'page-comentario-modal',
@@ -8,18 +9,21 @@ import { BackandService } from '@backand/angular2-sdk';
 })
 export class ComentarioModalPage {
   produto: any;
+  comentario: any;
 
-
-  obj:any = this.params.get('id');
+  //peguei o id do produto
+  obj: any = this.params.get('id');
 
   constructor(
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
     public backand: BackandService,
-    public loadingCtrl: LoadingController) {
-   
- 
+    public loadingCtrl: LoadingController,
+    public navCtrl: NavController) {
+
+    this.produto = {};
+
     if (this.obj != undefined) {
       let loading = this.loadingCtrl.create({
         content: 'Recuperando informações...'
@@ -33,22 +37,37 @@ export class ComentarioModalPage {
       });
     }
   }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ComentarioModalPage');
-   // this.carregar();
-  }
-  carregar() {
-
-    this.backand.object.getOne("produto", this.params.get('id')).then((resp) => {
-      // obtem o objeto e adiciona na variavel produto
-      this.produto = resp.data;
-      //dispensa a mensagem
-
-    }).catch((errp) => {
-    });
 
   }
+
+  cadastrar() {
+    let loading = this.loadingCtrl.create({
+    content: 'Salvando...'
+  });
+  loading.present();
+
+  //if(this.comentario.id!=undefined){
+   // this.atualizar(loading); //teria que ser algo como identificar o usuário e modificar o comentário dele
+
+  //}else{
+    this.criar(loading);
+ // }
+
+  }
+
+  criar(loading){
+  this.backand.object.create("comentario", this.comentario.id).then((resp) => {
+    loading.dismiss();
+    this.navCtrl.setRoot(ProdutoZoomPage);
+  }).catch((err) => {
+    console.log("erroCadastrarComentario: "+err);
+  });
+}
+
 }
