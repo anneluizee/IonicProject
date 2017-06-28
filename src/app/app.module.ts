@@ -18,6 +18,10 @@ import { CadastrarEstabelecimentoPage } from '../pages/cadastrar-estabelecimento
 import { ProdutoZoomPage } from "../pages/produto-zoom/produto-zoom";
 import { BackandService } from '@backand/angular2-sdk';
 import { ComentarioModalPage } from "../pages/comentario-modal/comentario-modal"; 
+import { Geolocation } from '@ionic-native/geolocation';
+import { Device } from '@ionic-native/device';
+import { Vibration } from '@ionic-native/vibration';
+import { UsuarioPage } from '../pages/usuario/usuario';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { ComentarioModalPage } from "../pages/comentario-modal/comentario-modal"
     CadastrarEstabelecimentoPage,
     ListarEstabelecimentoPage,
     ProdutoZoomPage,
-    ComentarioModalPage
+    ComentarioModalPage,
+    UsuarioPage
   ],
   imports: [
     BrowserModule,
@@ -49,12 +54,16 @@ import { ComentarioModalPage } from "../pages/comentario-modal/comentario-modal"
     ListarEstabelecimentoPage,
     CadastrarEstabelecimentoPage,
     ProdutoZoomPage,
-    ComentarioModalPage
+    ComentarioModalPage,
+    UsuarioPage
     ],
   providers: [
     StatusBar,
     SplashScreen,
     BackandService,
+    Device,
+    Vibration,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

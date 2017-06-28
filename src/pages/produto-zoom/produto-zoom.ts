@@ -9,8 +9,8 @@ import { ComentarioModalPage } from "../comentario-modal/comentario-modal";
 })
 export class ProdutoZoomPage {
   produto: any;
-  identificador: any;
   comentarios: any;
+  comentario: any;
 
   constructor(
     public navCtrl: NavController,
@@ -21,32 +21,32 @@ export class ProdutoZoomPage {
     public modalCtrl: ModalController) {
 
     this.produto = {};
+    this.produto.comentarios = [];
+    this.comentario = {};
+
     let id = this.navParams.get("id");
 
     if (id != undefined) {
-      let loading = this.loadingCtrl.create({
-        content: 'Recuperando informações...'
-      });
-      loading.present();
+      //let loading = this.loadingCtrl.create({
+     //   content: 'Recuperando informações...'
+    //  });
+     // loading.present();
 
-      this.backand.object.getOne("produto", id).then((resp) => {
+      this.backand.object.getOne("produto", id,{deep:true}).then((resp) => {
         this.produto = resp.data;
-        loading.dismiss();
+        console.log(this.produto.comentarios)
+        if(this.produto.comentarios==null){
+          console.log("nada");
+          this.produto.comentarios = [];
+        }
+;      //  loading.dismiss();
       }).catch((errp) => {
       });
-
-      this.backand.object.getList("comentario",{myProduto:[id]}).then((resp) => {
-        this.comentarios = resp.data;
-        loading.dismiss();
-      }).catch((errp) => {
-      });
-
-    }
 
     //identificou o id do produto, então carrega os comentários do produto
     //mas verifica se tem comentários já cadastrados
     //aparece o botão de criar o comentário
-
+    }
 
   }
 
@@ -57,20 +57,20 @@ export class ProdutoZoomPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProdutoZoomPage');
-    this.listar();
+   // this.listar();
   }
 
   listar() {
-    let loader = this.loadingCtrl.create({
-      content: "Carregando..."
-    });
-    loader.present();
+   // let loader = this.loadingCtrl.create({
+    //  content: "Carregando..."
+   // });
+  //  loader.present();
 
     this.backand.object.getOne("produto", this.navParams.get('id')).then((resp) => {
       // obtem o objeto e adiciona na variavel produto
       this.produto = resp.data;
       //dispensa a mensagem
-      loader.dismiss();
+     // loader.dismiss();
     }).catch((errp) => {
     });
 

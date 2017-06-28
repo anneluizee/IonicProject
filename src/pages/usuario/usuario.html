@@ -1,18 +1,61 @@
-<!--
-  Generated template for the UsuarioPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>usuario</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Usuário</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-list>
+  <ion-item>
+     <ion-label stacked>E-mail</ion-label>
+      <ion-label>{{user.username}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-label>{{user.fullName}}</ion-label>
+
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>UserId:</ion-label>
+      <ion-label>{{user.userId}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Modelo: </ion-label>
+      <ion-label>{{deviceInfo.modelo}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Plataforma: </ion-label>
+      <ion-label>{{deviceInfo.plataforma}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Fabricante: </ion-label>
+      <ion-label>{{deviceInfo.fabricante}}</ion-label>
+    </ion-item>
+
+ <!--   <ion-item>
+    <ion-label stacked>Fabricante: </ion-label>
+    <ion-label>{{deviceInfo.phonenumber}}</ion-label>
+    </ion-item>-->
+    
+    <ion-item>
+      <ion-label stacked>Latitude: </ion-label>
+      <ion-label>{{deviceInfo.latitude}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Longitude: </ion-label>
+      <ion-label>{{deviceInfo.longitude}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+  <br>
+  <button ion-button full round color="danger" (click)="Sair()">Sair</button>
 
 </ion-content>

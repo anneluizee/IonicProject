@@ -37,6 +37,9 @@ export class ComentarioModalPage {
 
       this.backand.object.getOne("produto", this.obj).then((resp) => {
         this.produto = resp.data;
+        if(this.produto.comentarios==null){
+          this.produto.comentarios = [];
+        }
         loading.dismiss();
       }).catch((errp) => {
       });
@@ -67,12 +70,13 @@ export class ComentarioModalPage {
   }
 
   criar(loading){
-  
+
   this.backand.object.create("comentario", {
     descricao: this.produto.comentarios,
     myProduto: this.produto.id
     //user: res.data.userId
   }).then((resp) => {
+    this.produto = {};
     loading.dismiss();
     this.navCtrl.setRoot(ListarProdutosPage);
   }).catch((err) => {

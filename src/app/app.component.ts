@@ -8,7 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { BackandService } from '@backand/angular2-sdk';
 import { ListarProdutosPage } from '../pages/listar-produtos/listar-produtos';
 import { ListarEstabelecimentoPage } from '../pages/listar-estabelecimento/listar-estabelecimento';
-
+import { UsuarioPage} from '../pages/usuario/usuario';
 
 @Component({
   templateUrl: 'app.html',
@@ -28,7 +28,8 @@ export class MyApp {
      this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Lista de Produtos', component: ListarProdutosPage },
-      { title: 'Estabelecimentos', component: ListarEstabelecimentoPage}
+      { title: 'Estabelecimentos', component: ListarEstabelecimentoPage},
+      { title: 'Usuario', component: UsuarioPage}
     ];
 
         backand.init({
@@ -55,32 +56,6 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  Sair(){
-   let alert = this.alertCtrl.create({
-    title: 'Confirmar',
-    message: 'Você tem certeza que deseja sair?',
-    buttons: [
-      {
-        text: 'Cancelar',
-        role: 'cancelar',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Sair',
-        handler: () => {
-          this.backand.signout();
-          this.nav.setRoot(LoginPage);
-          this.menu.enable(false,'menu');
-          console.log('Logged out');
-        }
-      }
-    ]
-  });
-  alert.present();
-  
-}
 
 
 
