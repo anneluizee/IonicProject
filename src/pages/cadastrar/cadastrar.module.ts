@@ -13,4 +13,4 @@ import { CadastrarPage } from './cadastrar';
     CadastrarPage
   ]
 })
-export class CadastrarPageModule {}
+export class CadastrarPageModule { }

@@ -30,12 +30,12 @@ export class ListarEstabelecimentoPage {
       this.estabelecimentos = resp.data;
       loader.dismiss();
 
-      let toast = this.toast.create({
+    /*  let toast = this.toast.create({
         message: this.estabelecimentos.length +' estabelecimentos carregados com sucesso',
         duration: 3000,
         position: 'top'
       });
-      toast.present();
+      toast.present();*/
     }).catch((err) => {
     });
   }

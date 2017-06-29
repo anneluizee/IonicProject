@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
-/**
- * Generated class for the EsqueceuSenhaPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-esqueceu-senha',
@@ -21,4 +16,7 @@ export class EsqueceuSenhaPage {
     console.log('ionViewDidLoad EsqueceuSenhaPage');
   }
 
+public voltar(){
+ this.navCtrl.push(LoginPage);
+}
 }

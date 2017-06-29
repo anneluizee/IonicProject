@@ -7,7 +7,6 @@ import io from 'socket.io-client';
 window["io"] = io;
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { EsqueceuSenhaPage} from "../pages/esqueceu-senha/esqueceu-senha";
 import { CadastrarPage } from "../pages/cadastrar/cadastrar"; //para cadastrar usuario
@@ -26,7 +25,6 @@ import { UsuarioPage } from '../pages/usuario/usuario';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LoginPage,
     EsqueceuSenhaPage,
     CadastrarPage,
@@ -45,7 +43,6 @@ import { UsuarioPage } from '../pages/usuario/usuario';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LoginPage,
     CadastrarPage,
     EsqueceuSenhaPage,

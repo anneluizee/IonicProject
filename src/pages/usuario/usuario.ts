@@ -20,15 +20,23 @@ export class UsuarioPage implements OnInit{
   ngOnInit() {
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService,
-    private geolocation: Geolocation, private device: Device, public loadingCtrl: LoadingController, private vibration: Vibration,
-    public alertCtrl: AlertController,public menu: MenuController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public backand: BackandService,
+    private geolocation: Geolocation, 
+    private device: Device, 
+    public loadingCtrl: LoadingController, 
+    private vibration: Vibration,
+    public alertCtrl: AlertController,
+    public menu: MenuController) {
 
         this.deviceInfo = {};
         this.user = {};
 
-        this.backand.user.getUserDetails().then(
-      (data: any) => {
+        this.backand.user.getUserDetails()
+        .then(
+          (data: any) => {
         this.user = data.data;
         //console.log("USUARIO", data.data);
       },
@@ -54,7 +62,6 @@ export class UsuarioPage implements OnInit{
     });
 
     loader.present();
-
 
     this.deviceInfo.modelo = this.device.model;
     this.deviceInfo.plataforma = this.device.platform;
@@ -101,18 +108,18 @@ criar(loader) {
   }
  public Sair() {
     let alert = this.alertCtrl.create({
-      title: 'Confirmar?',
+      title: 'Confirmar',
       message: 'Você tem certeza que deseja sair?',
       buttons: [
         {
-          text: 'Não.',
+          text: 'Não',
           role: 'cancelar',
           handler: () => {
             console.log('not clicked');
           }
         },
         {
-          text: 'Sair.',
+          text: 'Sair',
           handler: () => {
             console.log('Sair clicked');
             this.backand.signout();
@@ -121,7 +128,7 @@ criar(loader) {
             this.menu.enable(false,'menu');
             //this.navParams.setRoot(LoginPage);
             //console.log("deslogado", this.user);
-            //this.navCtrl.setRoot(HomePage);
+            
          
           }
         }

@@ -3,7 +3,7 @@ import { NavController,AlertController } from 'ionic-angular';
 
 import 'rxjs/Rx'
 import { BackandService } from '@backand/angular2-sdk'
-import { HomePage } from "../home/home";
+import { ListarProdutosPage } from "../listar-produtos/listar-produtos";
 import { EsqueceuSenhaPage} from "../esqueceu-senha/esqueceu-senha";
 import { CadastrarPage } from "../cadastrar/cadastrar";
 
@@ -14,7 +14,7 @@ import { CadastrarPage } from "../cadastrar/cadastrar";
 })
 export class LoginPage {
 
-  homePage = HomePage;
+ 
   esqueceuSenhaPage = EsqueceuSenhaPage;
   cadastrarPage = CadastrarPage;
 
@@ -73,17 +73,13 @@ public getAuthTokenSimple() {
    }
 
  public  AlertaConseguiu(){
-   this.navCtrl.setRoot(HomePage); 
-   //{
-   //   firstPassed: "value 1",
-   //   secondPassed: "value 2"
-   // })
-    
+   this.navCtrl.setRoot(ListarProdutosPage); 
+  
    }
 
   public AlertaNaoConseguiu(){
       let alert = this.alertCtrl.create({
-      title: 'Login Failed',
+      title: 'Falha no login',
       message: 'Você não conseguiu fazer login. Tente novamente!',
       buttons: ['Ok']
     });

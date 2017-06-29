@@ -1,28 +1,40 @@
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title style="text-align:center">Login</ion-title>
+    </ion-toolbar>
+</ion-header>
 
-<ion-content padding class="page1">
-    <h2>Login</h2>
+<ion-content padding scroll="false">
 
     <ion-list>
         <ion-item>
-            <ion-label floating>Usuário</ion-label>
+            <ion-label stacked style="text-align:center">Usuário</ion-label>
+
             <ion-input [value]="username" (input)="username = $event.target.value" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Senha</ion-label>
-            <ion-input  [value]="password" (input)="password = $event.target.value" type="password"></ion-input>
+            <ion-label stacked style="text-align:center">Senha</ion-label>
+            <ion-input [value]="password" (input)="password = $event.target.value" type="password"></ion-input>
         </ion-item>
 
     </ion-list>
+    <div class="center">
+        <br/>
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button round (click)="getAuthTokenSimple()" color="success">Entrar</button>
+            </ion-col>
 
-     <button ion-button (click)="getAuthTokenSimple()" color="success">Entrar</button>
+            <ion-col col-6>
+                <button ion-button round [navPush]="cadastrarPage">Cadastrar</button>
+            </ion-col>
+        </ion-row>
+        <br/>
+        <br/>
+        <a [navPush]="esqueceuSenhaPage">
+            <p>Esqueceu sua senha?</p>
+        </a>
+    </div>
 
-   <br/>
-   <a [navPush]="esqueceuSenhaPage"><p>Esqueceu sua senha?</p></a>
-
-   <br/>
-   <button ion-button [navPush]="cadastrarPage">Cadastrar</button>
 </ion-content>

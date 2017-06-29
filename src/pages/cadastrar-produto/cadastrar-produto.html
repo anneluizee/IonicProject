@@ -1,26 +1,40 @@
 <ion-header>
-  <ion-navbar>
-      <button ion-button menuToggle>
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cadastrar  Produto</ion-title>
-  </ion-navbar>
+    <ion-title>Cadastrar Produto</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-<ion-list>
-  <ion-item>
-    <ion-label floating>Nome</ion-label>
-    <ion-input [(ngModel)]="produto.nome" type="text"></ion-input>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input [(ngModel)]="produto.nome" type="text"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Descrição</ion-label>
-    <ion-input [(ngModel)]="produto.descricao" type="text"></ion-input>
-  </ion-item>
-  
-  <div style="height:30px"></div>
-  <button ion-button block (click)="cadastrar()">Cadastrar</button>
-</ion-list>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input [(ngModel)]="produto.descricao" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Preço</ion-label>
+      <ion-input [(ngModel)]="produto.precos" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estabelecimento</ion-label>
+      <ion-select>
+        <ion-option *ngFor="est of estabelecimentos">
+          {{est.nome}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <div style="height:30px"></div>
+    <button ion-button block (click)="cadastrar()">Cadastrar</button>
+  </ion-list>
 </ion-content>

@@ -31,12 +31,12 @@ listar() {
       this.produtos = resp.data;
       loader.dismiss();
 
-      let toast = this.toast.create({
+   /*   let toast = this.toast.create({
        message: this.produtos.length +' produtos carregados com sucesso',
        duration: 3000,
        position: 'top'
       });
-      toast.present();
+      toast.present();*/
 
     }).catch((err) => {
     });
@@ -89,5 +89,6 @@ editar(p) {
     console.log('rotear para zoomProduto');
     this.navCtrl.push(ProdutoZoomPage, { id: p.id}); //tem que passar os parametros do produto
   }
+
 
 }

@@ -3,7 +3,7 @@ import { Platform, Nav, AlertController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+
 import { LoginPage } from '../pages/login/login';
 import { BackandService } from '@backand/angular2-sdk';
 import { ListarProdutosPage } from '../pages/listar-produtos/listar-produtos';
@@ -26,7 +26,6 @@ export class MyApp {
 
     this.initializeApp();
      this.pages = [
-      { title: 'Home', component: HomePage },
       { title: 'Lista de Produtos', component: ListarProdutosPage },
       { title: 'Estabelecimentos', component: ListarEstabelecimentoPage},
       { title: 'Usuario', component: UsuarioPage}

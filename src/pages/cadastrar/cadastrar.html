@@ -1,21 +1,20 @@
-<!--
-  Generated template for the CadastrarPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+            <button ion-button (click)="voltar()" icon-only>
+      <ion-icon name="arrow-back"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title style="text-align:center">Cadastrar</ion-title>
 
-  <ion-navbar>
-    <ion-title>Cadastrar</ion-title>
-  </ion-navbar>
+    </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
- <ion-list>
+    <ion-list>
         <ion-item>
             <ion-label floating>Username</ion-label>
             <ion-input type="email" [value]="email" (input)="email = $event.target.value"></ion-input>
@@ -36,10 +35,12 @@
             <ion-label floating>Confirm Password</ion-label>
             <ion-input type="password" [value]="confirmPassword" (input)="confirmPassword = $event.target.value"></ion-input>
         </ion-item>
-        <!-- <h4 style="color:red;" ng-bind="vm.errorMessage"></h4> -->
 
-        <button ion-button (click)="signUp()" color="success">Cadastrar</button>
+        <br/>
 
+        <div style="text-align:center">
+            <button ion-button (click)="signUp()" color="success">Cadastrar</button>
+        </div>
     </ion-list>
-    
+
 </ion-content>

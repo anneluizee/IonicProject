@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar color="primary">
      <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
      </button>
     <ion-title>Produto</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -21,7 +21,7 @@
   <!--Criar um campo para escrever comentário -->
  <button ion-button (click)="openModal(produto.id)">O que você acha desse produto?</button>
  
- <hr/>
+<br/>
  Comentários:
 <ion-list>
  <ion-item *ngFor="let c of produto.comentarios">
