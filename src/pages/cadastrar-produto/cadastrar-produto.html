@@ -25,10 +25,10 @@
       <ion-input [(ngModel)]="produto.precos" type="number"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item *ngFor="let est of estabelecimentos">
       <ion-label>Estabelecimento</ion-label>
       <ion-select>
-        <ion-option *ngFor="est of estabelecimentos">
+        <ion-option >
           {{est.nome}}
         </ion-option>
       </ion-select>

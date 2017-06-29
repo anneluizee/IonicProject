@@ -11,12 +11,14 @@ import { ListarProdutosPage } from '../listar-produtos/listar-produtos';
 export class CadastrarProdutoPage {
   produto: any;
   estabelecimentos: any;
+  nome: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService,
     public loadingCtrl: LoadingController) {
 
     this.produto = {};
     this.estabelecimentos = {};
+    this.estabelecimentos.nome = {};
 
     let id = this.navParams.get("id");
 
@@ -33,9 +35,12 @@ export class CadastrarProdutoPage {
 
       this.backand.object.getList("estabelecimento").then((resp) => {
       this.estabelecimentos = resp.data;
-      
+       }).catch((errp) => {
   });
+
     }
+
+      console.log("est:"+this.estabelecimentos.nome);
   }
 
   cadastrar() {
@@ -59,10 +64,9 @@ export class CadastrarProdutoPage {
       console.log(err);
     });
 
-    this.backand.object.getList("estabelecimento").then((resp) => {
-      this.estabelecimentos = resp.data;
-      
-  });
+    
+
+
 }
 
   atualizar(loading) {

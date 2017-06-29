@@ -69,8 +69,6 @@ export class ProdutoZoomPage {
     this.backand.object.getOne("produto", this.navParams.get('id')).then((resp) => {
       // obtem o objeto e adiciona na variavel produto
       this.produto = resp.data;
-      //dispensa a mensagem
-     // loader.dismiss();
     }).catch((errp) => {
     });
 
