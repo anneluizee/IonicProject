@@ -12,66 +12,70 @@ export class CadastrarProdutoPage {
   produto: any;
   estabelecimentos: any;
   nome: any;
+  preco: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService,
     public loadingCtrl: LoadingController) {
 
     this.produto = {};
+    this.preco = {};
+    this.produto.precos = {};
     this.estabelecimentos = {};
     this.estabelecimentos.nome = {};
 
     let id = this.navParams.get("id");
 
     if (id != undefined) {
-      let loading = this.loadingCtrl.create({
-        content: 'Recuperando informações...'
-      });
-      loading.present();
-      this.backand.object.getOne("produto", id).then((resp) => {
+      this.backand.object.getOne("produto", id).
+      then((resp) => {
         this.produto = resp.data;
-        loading.dismiss();
       }).catch((errp) => {
       });
 
-      this.backand.object.getList("estabelecimento").then((resp) => {
+      this.backand.object.getOne("Estabelecimento",{myEstabelecimento:id}).
+      then((resp) => {
       this.estabelecimentos = resp.data;
        }).catch((errp) => {
   });
 
     }
-
-      console.log("est:"+this.estabelecimentos.nome);
+      console.log("est:"+this.estabelecimentos);
   }
 
   cadastrar() {
-    let loading = this.loadingCtrl.create({
-      content: 'Salvando...'
-    });
-    loading.present();
+    //let loading = this.loadingCtrl.create({
+      //content: 'Salvando...'
+    //});
+    //loading.present();
 
     if (this.produto.id != undefined) {
-      this.atualizar(loading);
+      this.atualizar();
     } else {
-      this.criar(loading);
+      this.criar();
     }
   }
 
-  criar(loading) {
+  criar() {
     this.backand.object.create("produto", this.produto).then((resp) => {
-      loading.dismiss();
+     // loading.dismiss();
       this.navCtrl.setRoot(ListarProdutosPage);
     }).catch((err) => {
       console.log(err);
     });
 
-    
-
+    this.backand.object.create("Estabelecimento",
+    {myEstabelecimento: this.produto.id}).then((resp) => {
+     // loading.dismiss();
+      this.navCtrl.setRoot(ListarProdutosPage);
+    }).catch((err) => {
+      console.log(err);
+    });
 
 }
 
-  atualizar(loading) {
+  atualizar() {
     this.backand.object.update("produto", this.produto.id, this.produto).then((resp) => {
-      loading.dismiss();
+     // loading.dismiss();
       this.navCtrl.setRoot(ListarProdutosPage);
     }).catch((err) => {
       console.log(err);

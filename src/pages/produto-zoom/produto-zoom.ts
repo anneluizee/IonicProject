@@ -11,6 +11,7 @@ export class ProdutoZoomPage {
   produto: any;
   comentarios: any;
   comentario: any;
+  preco:any;
 
   constructor(
     public navCtrl: NavController,
@@ -23,6 +24,7 @@ export class ProdutoZoomPage {
     this.produto = {};
     this.produto.comentarios = [];
     this.comentario = {};
+    this.produto.precos = {};
 
     let id = this.navParams.get("id");
 
@@ -39,13 +41,11 @@ export class ProdutoZoomPage {
           console.log("nada");
           this.produto.comentarios = [];
         }
-;      //  loading.dismiss();
+      //  loading.dismiss();
       }).catch((errp) => {
       });
 
-    //identificou o id do produto, então carrega os comentários do produto
-    //mas verifica se tem comentários já cadastrados
-    //aparece o botão de criar o comentário
+    
     }
 
   }

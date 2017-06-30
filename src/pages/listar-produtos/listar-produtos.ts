@@ -30,14 +30,6 @@ listar() {
     .then((resp) => {
       this.produtos = resp.data;
       loader.dismiss();
-
-   /*   let toast = this.toast.create({
-       message: this.produtos.length +' produtos carregados com sucesso',
-       duration: 3000,
-       position: 'top'
-      });
-      toast.present();*/
-
     }).catch((err) => {
     });
   }
