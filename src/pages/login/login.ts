@@ -6,6 +6,7 @@ import { BackandService } from '@backand/angular2-sdk'
 import { ListarProdutosPage } from "../listar-produtos/listar-produtos";
 import { EsqueceuSenhaPage} from "../esqueceu-senha/esqueceu-senha";
 import { CadastrarPage } from "../cadastrar/cadastrar";
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   templateUrl: 'login.html',
@@ -30,7 +31,9 @@ export class LoginPage {
 params: Object;
 pushPage: any;
 
-  constructor(private backand:BackandService,public alertCtrl: AlertController,public navCtrl: NavController) {
+  constructor(private screenOrientation: ScreenOrientation, private backand:BackandService,public alertCtrl: AlertController,public navCtrl: NavController) {
+
+this.screenOrientation.unlock();
 
  this.backand.user.getUserDetails().then(
       (res: any) => {

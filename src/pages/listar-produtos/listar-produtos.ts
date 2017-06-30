@@ -14,6 +14,7 @@ export class ListarProdutosPage {
   produtos: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public backand: BackandService,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toast: ToastController) {
+      
   }
 
   ionViewDidLoad() { //no momento em que a página carrega

@@ -20,6 +20,8 @@ import { ComentarioModalPage } from "../pages/comentario-modal/comentario-modal"
 import { Geolocation } from '@ionic-native/geolocation';
 import { Device } from '@ionic-native/device';
 import { Vibration } from '@ionic-native/vibration';
+import { HeaderColor } from '@ionic-native/header-color';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { UsuarioPage } from '../pages/usuario/usuario';
 
 @NgModule({
@@ -61,6 +63,8 @@ import { UsuarioPage } from '../pages/usuario/usuario';
     Device,
     Vibration,
     Geolocation,
+    HeaderColor,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

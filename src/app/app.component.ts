@@ -9,6 +9,7 @@ import { BackandService } from '@backand/angular2-sdk';
 import { ListarProdutosPage } from '../pages/listar-produtos/listar-produtos';
 import { ListarEstabelecimentoPage } from '../pages/listar-estabelecimento/listar-estabelecimento';
 import { UsuarioPage} from '../pages/usuario/usuario';
+import { HeaderColor } from '@ionic-native/header-color';
 
 @Component({
   templateUrl: 'app.html',
@@ -21,7 +22,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  constructor(private headerColor: HeaderColor,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
   public backand:BackandService, public alertCtrl: AlertController, public menu: MenuController ) {
 
     this.initializeApp();
@@ -30,6 +31,8 @@ export class MyApp {
       { title: 'Estabelecimentos', component: ListarEstabelecimentoPage},
       { title: 'Usuario', component: UsuarioPage}
     ];
+
+    this.headerColor.tint('#becb29');
 
         backand.init({
         appName: 'buscape',
